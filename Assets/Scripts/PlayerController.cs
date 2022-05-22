@@ -31,7 +31,9 @@ public class PlayerController : MonoBehaviour
             isLeft = false;
             anim.SetBool("isSwimming", isSwimming);
             anim.SetBool("isLeft", isLeft);
+            transform.localScale = new Vector3(1, 1, 1);
             transform.Translate(Vector2.right * Time.deltaTime * speed * horizontalInput);
+
 
         }
         else if (horizontalInput < 0)
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
             isLeft = true;
             anim.SetBool("isSwimming", isSwimming);
             anim.SetBool("isLeft", isLeft);
+            transform.localScale = new Vector3(-1,1,1);
             transform.Translate(Vector2.right * Time.deltaTime * speed * horizontalInput);
         }
         else
