@@ -11,11 +11,12 @@ public class PlayerController : MonoBehaviour
     bool isLeft = false;
     public Animator anim;
     public int pollutionCollected = 0;
+    Vector2 originalOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalOffset = gameObject.GetComponent<BoxCollider2D>().offset;
     }
 
     // Update is called once per frame
@@ -34,7 +35,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isLeft", isLeft);
             transform.localScale = new Vector3(1, 1, 1);
             transform.Translate(Vector2.right * Time.deltaTime * speed * horizontalInput);
-
+            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2,1);
+            gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(1f, -.5f);
 
         }
         else if (horizontalInput < 0)
@@ -45,11 +47,16 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isLeft", isLeft);
             transform.localScale = new Vector3(-1,1,1);
             transform.Translate(Vector2.right * Time.deltaTime * speed * horizontalInput);
+            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2, 1);
+            gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.75f, -.5f);
+
         }
         else
         {
             isSwimming = false;
             anim.SetBool("isSwimming", isSwimming);
+            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(1, 2);
+            gameObject.GetComponent<BoxCollider2D>().offset = originalOffset;
         }
 
     }

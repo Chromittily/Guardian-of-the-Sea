@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PollutionCounter : MonoBehaviour
 {
     int pollutionCollected = 0;
-    Text text;
+    public Text text;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class PollutionCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pollutionCollected = gameObject.GetComponent<PlayerController>().pollutionCollected;
+        pollutionCollected = player.GetComponent<PlayerController>().pollutionCollected;
 
         text.text = "x " + pollutionCollected;
     }
