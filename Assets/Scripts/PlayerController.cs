@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     bool isSwimming = false;
     bool isLeft = false;
     public Animator anim;
+    public int pollutionCollected = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -51,5 +52,10 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isSwimming", isSwimming);
         }
 
+    }
+
+    public void pollutionCounter()
+    {
+        pollutionCollected++;
     }
 }

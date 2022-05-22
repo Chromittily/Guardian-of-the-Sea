@@ -16,10 +16,16 @@ public class PollutionChecker : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         if(isPlastic == false)
         {
             anim.SetBool("isPlastic", isPlastic);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col){
+        isPlastic = false;
+
+        col.gameObject.GetComponent<PlayerController>().pollutionCounter();
     }
 }
