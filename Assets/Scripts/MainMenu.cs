@@ -6,7 +6,10 @@ public class MainMenu : MonoBehaviour
     public void GoToScene(string sceneName) {
         
         SceneManager.LoadScene(sceneName);
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Click);
     }
+
+
 
     public void QuitApp()
     {

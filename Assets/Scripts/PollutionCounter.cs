@@ -7,7 +7,7 @@ public class PollutionCounter : MonoBehaviour
 {
     int pollutionCollected = 0;
     public Text text;
-    public GameObject player;
+    public GameObject player = null;
     // Start is called before the first frame update
     void Start()
     {
